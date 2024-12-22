@@ -1,0 +1,32 @@
+<h2>User info</h2>
+        <% if current_user.profile_image.attached? %>
+          <%= image_tag current_user.profile_image, size: "100x100" %>
+        <% else %>
+          <%= image_tag 'no_image' %>
+        <% end %>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row">name</th>
+            <td><%= current_user.name %></td>
+          </tr>
+          <tr>
+            <th scope="row">introduction</th>
+            <td><%= current_user.introduction %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fa-solid fa-user-gear"></i>
+      <% end %>
+
+      <h2>New Book</h2>
+        <%= form_with model: @book do |f| %>
+          <p>Title</p>
+            <%= f.text_field :title %>
+          <p>Opinion</p>
+            <%= f.text_area :body %><br>
+          <%= f.submit 'Create Book', class: "btn btn-success" %>
+        <% end %>
