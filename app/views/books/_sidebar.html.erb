@@ -1,4 +1,4 @@
-<h2>User info</h2>
+<h2>user info</h2>
         <% if current_user.profile_image.attached? %>
           <%= image_tag current_user.profile_image, size: "100x100" %>
         <% else %>
@@ -22,8 +22,8 @@
         <i class="fa-solid fa-user-gear"></i>
       <% end %>
 
-      <h2>New Book</h2>
-        <%= form_with model: @book do |f| %>
+      <h2>New book</h2>
+        <%= form_with model: book do |f| %>
           <p>Title</p>
             <%= f.text_field :title %>
           <p>Opinion</p>
